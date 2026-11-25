@@ -12,7 +12,6 @@ CSV_FILE = Path("expenses.csv")
 FIELDS = ["id", "date", "category", "amount", "note"]
 
 
-# ---------- File handling ----------
 
 def load_expenses():
     """Return the saved expenses as a list of dictionaries."""
@@ -46,7 +45,6 @@ def export_csv(expenses):
         writer.writerows(expenses)
 
 
-# ---------- Core logic ----------
 
 def add_expense(expenses, day, category, amount, note=""):
     next_id = max((e["id"] for e in expenses), default=0) + 1
@@ -76,8 +74,6 @@ def category_totals(expenses):
         totals[e["category"]] += e["amount"]
     return dict(totals)
 
-
-# ---------- Input and output ----------
 
 def ask_date():
     while True:
